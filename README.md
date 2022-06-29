@@ -6,6 +6,7 @@ Making use of Package Point Cloud Library with existing tutorial codes to make a
 3. export as ply file
 
 Precondition:
+
 Point Cloud Library Package Installed
   - sudo apt install libpcl-dev
 
