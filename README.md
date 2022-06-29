@@ -11,7 +11,6 @@ Making use of Package Point Cloud Library with existing tutorial codes to make a
 </table>
 
 
-| Allows user to choose their PCD file to do these actions:  |
 | ------------- |
 | 1. remove outlier using StatisticalOutlierRemoval filter |
 | 2. surface reconstruction using Moving Least Squares (MLS) surface reconstruction  |
