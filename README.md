@@ -10,7 +10,7 @@ Making use of Package Point Cloud Library with existing tutorial codes to make a
 <tr> 3. export as ply file </tr>
 </table>
 
-
+| <h2> Allows user to choose their PCD file to do these actions: </h2> |
 | ------------- |
 | 1. remove outlier using StatisticalOutlierRemoval filter |
 | 2. surface reconstruction using Moving Least Squares (MLS) surface reconstruction  |
