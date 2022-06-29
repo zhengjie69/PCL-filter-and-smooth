@@ -1,6 +1,6 @@
 # PCL-filter-and-smooth
 
-<h2>Making use of Package Point Cloud Library with existing tutorial codes to make an executable.</h2>
+Making use of Package Point Cloud Library with existing tutorial codes to make an executable.
 
 
 <h2>Allows user to choose their PCD file to do these actions:</h2>
