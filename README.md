@@ -12,3 +12,7 @@ Point Cloud Library Package Installed
 
 Instruction to run:
 ./filter_and_smoothing input.pcd output.ply
+
+References:
+https://pcl.readthedocs.io/projects/tutorials/en/master/resampling.html#moving-least-squares
+https://pcl.readthedocs.io/projects/tutorials/en/master/statistical_outlier.html#statistical-outlier-removal
