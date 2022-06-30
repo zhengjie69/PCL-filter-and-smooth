@@ -4,15 +4,41 @@
 #include <pcl/search/kdtree.h>
 #include <pcl/surface/mls.h>
 #include <pcl/filters/statistical_outlier_removal.h>
+#include <pcl/console/parse.h>
 
-int
-main ()
+using namespace pcl;
+using namespace pcl::io;
+using namespace pcl::console;
+
+void printHelp (int, char **argv)
 {
+  print_error ("Syntax is: %s input.pcd output.pcd\n", argv[0]);
+}
+
+int main (int argc, char** argv)
+{
+
+  print_info ("Clean out outliers in point cloud data and execute surface reconstruction on a PCD file, then export the file in PCD format. For more information, use: %s -h\n", argv[0]);
+
+  if (argc < 3)
+  {
+    printHelp (argc, argv);
+    return (-1);
+  }
+
+  std::vector<int> pcd_file_indices = parse_file_extension_argument (argc, argv, ".pcd");
+
+  if (pcd_file_indices.size () != 2)
+  {
+    print_error ("Need one input PCD file and one output PCD filename.\n");
+    return (-1);
+  }
+
   // Load input file into a PointCloud<T> with an appropriate type
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ> ());
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
   // Load bun0.pcd -- should be available with the PCL archive in test 
-  pcl::io::loadPCDFile ("/mnt/c/Users/thezh/OneDrive/Desktop/pcl_test/Level7DataCenterFinal.pcd", *cloud);
+  pcl::io::loadPCDFile (argv[pcd_file_indices[0]], *cloud);
 
   // Create the filtering object
   pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
@@ -42,8 +68,6 @@ main ()
   mls.process (mls_points);
 
   // Save output as PCD
-  pcl::io::savePCDFile ("Level7DataCenterResurface.pcd", mls_points);
+  pcl::io::savePCDFile (argv[pcd_file_indices[1]], mls_points);
   
-  // Save output as PLY
-  // pcl::io::savePLYFileBinary ("Level7DataCenterResurface.ply", mls_points);
 }
