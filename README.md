@@ -18,8 +18,8 @@ Point Cloud Library Package Installed
 
 
 <h2>Instruction to run:</h2>
-- cmake . <br />
-- make <br/>
+  - cmake . <br />
+  - make <br/>
 <h3>For exportation to ply:</h3><br />
 ./filter_and_smoothing_ply input.pcd output.ply
 <br />
