@@ -1,3 +1,0 @@
-/mnt/c/Users/thezh/OneDrive/Desktop/PCL-filter-and-smooth/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/thezh/OneDrive/Desktop/PCL-filter-and-smooth/CMakeFiles/edit_cache.dir
-/mnt/c/Users/thezh/OneDrive/Desktop/PCL-filter-and-smooth/CMakeFiles/filter_and_smoothing.dir
