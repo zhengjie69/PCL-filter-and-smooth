@@ -6,7 +6,7 @@ Making use of Package Point Cloud Library with existing tutorial codes to make a
 <h2>Allows user to choose their PCD file to do these actions:</h2>
 1. remove outlier using StatisticalOutlierRemoval filter <br />
 2. surface reconstruction using Moving Least Squares (MLS) surface reconstruction <br />
-3. export as ply file <br />
+3. export as ply or pcd file <br />
 
 
 
@@ -18,7 +18,14 @@ Point Cloud Library Package Installed
 
 
 <h2>Instruction to run:</h2>
-./filter_and_smoothing input.pcd output.ply
+- cmake .
+- make
+<br />
+For exportation to ply:
+./filter_and_smoothing_ply input.pcd output.ply
+<br />
+For exportation to pcd:
+./filter_and_smoothing_pcd input.pcd output.pcd
 
 
 
