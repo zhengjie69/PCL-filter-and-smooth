@@ -35,26 +35,28 @@ int main (int argc, char** argv)
   }
 
   // Load input file into a PointCloud<T> with an appropriate type
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ> ());
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGB> ());
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZRGB>);
   // Load bun0.pcd -- should be available with the PCL archive in test 
   pcl::io::loadPCDFile (argv[pcd_file_indices[0]], *cloud);
 
   // Create the filtering object
-  pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
+  pcl::StatisticalOutlierRemoval<pcl::PointXYZRGB> sor;
   sor.setInputCloud (cloud);
   sor.setMeanK (50);
   sor.setStddevMulThresh (1.0);
   sor.filter (*cloud_filtered);
 
   // Create a KD-Tree
-  pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ>);
+  pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZRGB>);
 
   // Output has the PointNormal type in order to store the normals calculated by MLS
-  pcl::PointCloud<pcl::PointNormal> mls_points;
+  // pcl::PointCloud<pcl::PointNormal> mls_points;
+  pcl::PointCloud<pcl::PointXYZRGB> mls_points;
 
   // Init object (second point type is for the normals, even if unused)
-  pcl::MovingLeastSquares<pcl::PointXYZ, pcl::PointNormal> mls;
+  // pcl::MovingLeastSquares<pcl::PointXYZ, pcl::PointNormal> mls;
+  pcl::MovingLeastSquares<pcl::PointXYZRGB, pcl::PointXYZRGB> mls;
  
   mls.setComputeNormals (true);
 
